@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Pilla — Support</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; line-height: 1.6; }
+    .lang-switch { margin-bottom: 20px; }
+    .lang-switch button { margin-right: 8px; padding: 5px 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <!-- Språkvelger -->
+  <div class="lang-switch">
+    <button onclick="setLang('no')">🇳🇴 Norsk</button>
+    <button onclick="setLang('en')">🇬🇧 English</button>
+    <button onclick="setLang('fr')">🇫🇷 Français</button>
+    <button onclick="setLang('de')">🇩🇪 Deutsch</button>
+    <button onclick="setLang('it')">🇮🇹 Italiano</button>
+    <button onclick="setLang('es')">🇪🇸 Español</button>
+  </div>
+
+  <h1 id="title"></h1>
+  <p id="welcome"></p>
+
+  <h2 id="contact_title"></h2>
+  <p id="contact_text"></p>
+
+  <h2 id="faq_title"></h2>
+  <ul>
+    <li id="faq1"></li>
+    <li id="faq2"></li>
+  </ul>
+
+  <h2 id="privacy_title"></h2>
+  <p id="privacy_text"></p>
+
+  <script>
+    const translations = {
+      no: {
+        title: "Pilla — Support",
+        welcome: "Velkommen til hjelpesiden for Pilla.",
+        contact_title: "Kontakt oss",
+        contact_text: "Har du spørsmål eller problemer med appen?<br>Kontakt oss på: anders.rognlien@gmail.com",
+        faq_title: "Ofte stilte spørsmål",
+        faq1: "<b>Jeg får ikke varsler.</b><br>Sjekk at varsler er aktivert under <i>Innstillinger → Varsler → Pilla</i> på din iPhone.",
+        faq2: "<b>Hvordan endrer jeg tidspunktene for påminnelser?</b><br>Åpne Pilla → Innstillinger → Påminnelser, og juster morgen- og kveldsalarmen.",
+        privacy_title: "Personvern",
+        privacy_text: "Pilla samler ikke inn personopplysninger. All data lagres lokalt på din enhet.<br>Les mer i vår personvernerklæring."
+      },
+      en: {
+        title: "Pilla — Support",
+        welcome: "Welcome to the support page for Pilla.",
+        contact_title: "Contact Us",
+        contact_text: "Do you have questions or issues with the app?<br>Contact us at: anders.rognlien@gmail.com",
+        faq_title: "Frequently Asked Questions",
+        faq1: "<b>I don’t get notifications.</b><br>Check that notifications are enabled under <i>Settings → Notifications → Pilla</i> on your iPhone.",
+        faq2: "<b>How do I change reminder times?</b><br>Open Pilla → Settings → Reminders, and adjust the morning and evening alarms.",
+        privacy_title: "Privacy",
+        privacy_text: "Pilla does not collect personal data. All information is stored locally on your device.<br>Read more in our privacy policy."
+      },
+      fr: {
+        title: "Pilla — Support",
+        welcome: "Bienvenue sur la page d’aide de Pilla.",
+        contact_title: "Contactez-nous",
+        contact_text: "Vous avez des questions ou des problèmes avec l’app ?<br>Contactez-nous : anders.rognlien@gmail.com",
+        faq_title: "Questions fréquentes",
+        faq1: "<b>Je ne reçois pas de notifications.</b><br>Vérifiez que les notifications sont activées dans <i>Réglages → Notifications → Pilla</i> sur votre iPhone.",
+        faq2: "<b>Comment changer les heures de rappel ?</b><br>Ouvrez Pilla → Réglages → Rappels, et ajustez les alarmes du matin et du soir.",
+        privacy_title: "Confidentialité",
+        privacy_text: "Pilla ne collecte pas de données personnelles. Toutes les données sont stockées localement sur votre appareil.<br>En savoir plus dans notre politique de confidentialité."
+      },
+      de: {
+        title: "Pilla — Support",
+        welcome: "Willkommen auf der Hilfeseite von Pilla.",
+        contact_title: "Kontakt",
+        contact_text: "Haben Sie Fragen oder Probleme mit der App?<br>Kontaktieren Sie uns: anders.rognlien@gmail.com",
+        faq_title: "Häufige Fragen",
+        faq1: "<b>Ich erhalte keine Benachrichtigungen.</b><br>Überprüfen Sie, ob Benachrichtigungen unter <i>Einstellungen → Mitteilungen → Pilla</i> aktiviert sind.",
+        faq2: "<b>Wie ändere ich die Erinnerungszeiten?</b><br>Öffnen Sie Pilla → Einstellungen → Erinnerungen und passen Sie Morgen- und Abendalarm an.",
+        privacy_title: "Datenschutz",
+        privacy_text: "Pilla sammelt keine personenbezogenen Daten. Alle Daten werden lokal auf Ihrem Gerät gespeichert.<br>Mehr dazu in unserer Datenschutzerklärung."
+      },
+      it: {
+        title: "Pilla — Supporto",
+        welcome: "Benvenuto nella pagina di supporto di Pilla.",
+        contact_title: "Contattaci",
+        contact_text: "Hai domande o problemi con l’app?<br>Contattaci: anders.rognlien@gmail.com",
+        faq_title: "Domande frequenti",
+        faq1: "<b>Non ricevo notifiche.</b><br>Verifica che le notifiche siano attive in <i>Impostazioni → Notifiche → Pilla</i> sul tuo iPhone.",
+        faq2: "<b>Come modifico gli orari dei promemoria?</b><br>Apri Pilla → Impostazioni → Promemoria, e regola gli avvisi mattutini e serali.",
+        privacy_title: "Privacy",
+        privacy_text: "Pilla non raccoglie dati personali. Tutti i dati sono salvati localmente sul tuo dispositivo.<br>Leggi di più nella nostra informativa sulla privacy."
+      },
+      es: {
+        title: "Pilla — Soporte",
+        welcome: "Bienvenido a la página de ayuda de Pilla.",
+        contact_title: "Contáctanos",
+        contact_text: "¿Tienes preguntas o problemas con la app?<br>Contáctanos: anders.rognlien@gmail.com",
+        faq_title: "Preguntas frecuentes",
+        faq1: "<b>No recibo notificaciones.</b><br>Comprueba que las notificaciones estén activadas en <i>Ajustes → Notificaciones → Pilla</i> en tu iPhone.",
+        faq2: "<b>¿Cómo cambio las horas de los recordatorios?</b><br>Abre Pilla → Ajustes → Recordatorios y ajusta las alarmas de la mañana y la noche.",
+        privacy_title: "Privacidad",
+        privacy_text: "Pilla no recopila datos personales. Toda la información se guarda localmente en tu dispositivo.<br>Lee más en nuestra política de privacidad."
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById("title").innerHTML = t.title;
+      document.getElementById("welcome").innerHTML = t.welcome;
+      document.getElementById("contact_title").innerHTML = t.contact_title;
+      document.getElementById("contact_text").innerHTML = t.contact_text;
+      document.getElementById("faq_title").innerHTML = t.faq_title;
+      document.getElementById("faq1").innerHTML = t.faq1;
+      document.getElementById("faq2").innerHTML = t.faq2;
+      document.getElementById("privacy_title").innerHTML = t.privacy_title;
+      document.getElementById("privacy_text").innerHTML = t.privacy_text;
+    }
+
+    // Sett standard språk til norsk
+    setLang('no');
+  </script>
+</body>
+</html>
