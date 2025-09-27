@@ -1,29 +1,106 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="no">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    li.li2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {-webkit-text-stroke: 0px #000000}
-    ul.ul1 {list-style-type: disc}
+  <meta charset="UTF-8">
+  <title>Pilla — Personvern</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; line-height: 1.6; }
+    .lang-switch { margin-bottom: 20px; }
+    .lang-switch button { margin-right: 8px; padding: 5px 10px; cursor: pointer; }
   </style>
 </head>
 <body>
-<h1 style="margin: 0.0px 0.0px 16.1px 0.0px; font: 24.0px Times; -webkit-text-stroke: #000000"><span class="s1"><b>Personvernerklæring for Pilla</b></span></h1>
-<p class="p2"><span class="s1"><b>Sist oppdatert: 22/9-2025</b><b></b></span></p>
-<p class="p2"><span class="s1">Pilla samler ikke inn noen data om deg.</span></p>
-<ul class="ul1">
-  <li class="li2"><span class="s2"></span><span class="s1">Vi lagrer ingen personopplysninger.</span></li>
-  <li class="li2"><span class="s2"></span><span class="s1">Vi deler ikke informasjon med tredjeparter.</span></li>
-  <li class="li2"><span class="s2"></span><span class="s1">All bruk og lagring skjer lokalt på din enhet.</span></li>
-</ul>
-<p class="p2"><span class="s1">Hvis du har spørsmål om personvern, kan du kontakte oss på:<br>
-anders.rognlien@gmail.com</span></p>
+  <!-- Språkvelger -->
+  <div class="lang-switch">
+    <button onclick="setLang('no')">🇳🇴 Norsk</button>
+    <button onclick="setLang('en')">🇬🇧 English</button>
+    <button onclick="setLang('fr')">🇫🇷 Français</button>
+    <button onclick="setLang('de')">🇩🇪 Deutsch</button>
+    <button onclick="setLang('it')">🇮🇹 Italiano</button>
+    <button onclick="setLang('es')">🇪🇸 Español</button>
+  </div>
+
+  <h1 id="title"></h1>
+  <p id="updated"></p>
+  <p id="intro"></p>
+  <ul>
+    <li id="point1"></li>
+    <li id="point2"></li>
+    <li id="point3"></li>
+  </ul>
+  <p id="contact"></p>
+
+  <script>
+    const translations = {
+      no: {
+        title: "Personvernerklæring for Pilla",
+        updated: "<b>Sist oppdatert: 22/9-2025</b>",
+        intro: "Pilla samler ikke inn noen data om deg.",
+        point1: "Vi lagrer ingen personopplysninger.",
+        point2: "Vi deler ikke informasjon med tredjeparter.",
+        point3: "All bruk og lagring skjer lokalt på din enhet.",
+        contact: "Hvis du har spørsmål om personvern, kan du kontakte oss på:<br>anders.rognlien@gmail.com"
+      },
+      en: {
+        title: "Privacy Policy for Pilla",
+        updated: "<b>Last updated: 22/9-2025</b>",
+        intro: "Pilla does not collect any data about you.",
+        point1: "We do not store personal information.",
+        point2: "We do not share information with third parties.",
+        point3: "All usage and storage happens locally on your device.",
+        contact: "If you have questions about privacy, you can contact us at:<br>anders.rognlien@gmail.com"
+      },
+      fr: {
+        title: "Politique de confidentialité de Pilla",
+        updated: "<b>Dernière mise à jour : 22/9-2025</b>",
+        intro: "Pilla ne collecte aucune donnée vous concernant.",
+        point1: "Nous ne stockons aucune information personnelle.",
+        point2: "Nous ne partageons pas d’informations avec des tiers.",
+        point3: "Toute utilisation et tout stockage se font localement sur votre appareil.",
+        contact: "Si vous avez des questions sur la confidentialité, contactez-nous à :<br>anders.rognlien@gmail.com"
+      },
+      de: {
+        title: "Datenschutzerklärung für Pilla",
+        updated: "<b>Zuletzt aktualisiert: 22.9.2025</b>",
+        intro: "Pilla sammelt keine Daten über Sie.",
+        point1: "Wir speichern keine personenbezogenen Daten.",
+        point2: "Wir geben keine Informationen an Dritte weiter.",
+        point3: "Alle Nutzung und Speicherung erfolgt lokal auf Ihrem Gerät.",
+        contact: "Wenn Sie Fragen zum Datenschutz haben, kontaktieren Sie uns unter:<br>anders.rognlien@gmail.com"
+      },
+      it: {
+        title: "Informativa sulla privacy di Pilla",
+        updated: "<b>Ultimo aggiornamento: 22/9-2025</b>",
+        intro: "Pilla non raccoglie alcun dato su di te.",
+        point1: "Non memorizziamo informazioni personali.",
+        point2: "Non condividiamo informazioni con terze parti.",
+        point3: "Tutto l’uso e la memorizzazione avvengono localmente sul tuo dispositivo.",
+        contact: "Se hai domande sulla privacy, puoi contattarci a:<br>anders.rognlien@gmail.com"
+      },
+      es: {
+        title: "Política de privacidad de Pilla",
+        updated: "<b>Última actualización: 22/9-2025</b>",
+        intro: "Pilla no recopila ningún dato sobre ti.",
+        point1: "No almacenamos información personal.",
+        point2: "No compartimos información con terceros.",
+        point3: "Todo uso y almacenamiento se realiza localmente en tu dispositivo.",
+        contact: "Si tienes preguntas sobre privacidad, puedes contactarnos en:<br>anders.rognlien@gmail.com"
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.getElementById("title").innerHTML = t.title;
+      document.getElementById("updated").innerHTML = t.updated;
+      document.getElementById("intro").innerHTML = t.intro;
+      document.getElementById("point1").innerHTML = t.point1;
+      document.getElementById("point2").innerHTML = t.point2;
+      document.getElementById("point3").innerHTML = t.point3;
+      document.getElementById("contact").innerHTML = t.contact;
+    }
+
+    // Sett standard språk til norsk
+    setLang('no');
+  </script>
 </body>
 </html>
